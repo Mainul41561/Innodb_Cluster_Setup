@@ -136,6 +136,11 @@ sudo semanage fcontext -a -t mysqld_var_run_t "/var/lib/mysql/mysql.sock"
 
 sudo restorecon -Rv /mysql/$(hostname)
 sudo restorecon -Rv /var/lib/mysql
+
+# Verify the changes
+ls -Zd /mysql/$(hostname)/datafile/ 
+ls -Zd /mysql/$(hostname)/log/ 
+
 ```
 
 ---
@@ -166,7 +171,7 @@ sudo mysqld --initialize --user=mysql --datadir=/mysql/dc-node1/datafile
 
 ---
 
-## 9. Start MySQL Service
+## 9. Start MySQL Service In all node
 
 ```bash
 sudo systemctl start mysqld
@@ -175,7 +180,7 @@ sudo systemctl enable mysqld
 
 ---
 
-## 🔑 10. Retrieve Temporary Password
+## 🔑 10. Retrieve Temporary Password From all Node
 
 ```bash
 sudo grep 'temporary password' /mysql/<node>/log/mysqld.log
@@ -187,7 +192,7 @@ sudo grep 'temporary password' /mysql/dc-node1/log/mysqld.log
 ```
 ---
 
-## 🔐 11. Change Root Password
+## 🔐 11. Change Root Password In all Node
 
 ```bash
 mysql -u root -p
@@ -227,7 +232,7 @@ Set:
 ```
 Account Host: 192.168.56.%
 ```
-### Repeat this in all node
+#### Repeat this in all node make sure to change the command during node two and three and account host is same
 ---
 
 ## 🧩 13. Create Cluster From node-1
