@@ -63,7 +63,7 @@ Edit `sudo vi /etc/hosts` on **all nodes**:
 
 ---
 
-## Install the MySQL Community Repository in all node
+## 2. Install the MySQL Community Repository in all node
 
 ```bash
 # Run this command in all node
@@ -71,7 +71,7 @@ sudo dnf install -y https://dev.mysql.com/get/mysql84-community-release-el9-1.no
 ```
 
 ---
-## Install Required Packages
+## 3. Install Required Packages
 
 ```bash
 # Run this command in all node
@@ -92,7 +92,7 @@ sudo chmod -R 755 /mysql/ /var/lib/mysql
 
 ---
 
-## MySQL Configuration (`/etc/my.cnf`)
+## 5. MySQL Configuration (`/etc/my.cnf`)
 
 #### Example: **dc-node1**
 
